@@ -34,18 +34,26 @@ public void setBombs()
 }
 public void draw ()
 {
+<<<<<<< HEAD
     background(0);
+=======
+    //background(0);
+>>>>>>> 12b83bcd0f9bd14e212af3ea60f3d07e3421bd3a
     if(isWon())
         displayWinningMessage();
 }
 public boolean isWon()
 {
     int bombCount = 0;
+<<<<<<< HEAD
     int buttonsCount = 0;
+=======
+>>>>>>> 12b83bcd0f9bd14e212af3ea60f3d07e3421bd3a
     for(int i = 0; i < bombs.size(); i++)
         if(bombs.get(i).marked == true)
             bombCount++;
     if(bombCount == NUM_BOMBS)
+<<<<<<< HEAD
     {
         for(int i = 0; i < NUM_ROWS; i++)
         {
@@ -59,6 +67,11 @@ public boolean isWon()
             return true;
     }
     return false;
+=======
+        return true;
+    else
+        return false;
+>>>>>>> 12b83bcd0f9bd14e212af3ea60f3d07e3421bd3a
 }
 public void displayLosingMessage()
 {
@@ -71,7 +84,10 @@ public void displayLosingMessage()
     buttons[0][6].setLabel("v");
     buttons[0][7].setLabel("e");
     buttons[0][8].setLabel("r");
+<<<<<<< HEAD
     gameOver = true;
+=======
+>>>>>>> 12b83bcd0f9bd14e212af3ea60f3d07e3421bd3a
 }
 public void displayWinningMessage()
 {
@@ -84,7 +100,10 @@ public void displayWinningMessage()
     buttons[0][5].setLabel("i");
     buttons[0][6].setLabel("n");
     buttons[0][7].setLabel("!");
+<<<<<<< HEAD
     gameOver = true;
+=======
+>>>>>>> 12b83bcd0f9bd14e212af3ea60f3d07e3421bd3a
 }
 
 public class MSButton
@@ -93,7 +112,11 @@ public class MSButton
     private float x,y, width, height;
     private boolean clicked, marked;
     private String label;
+<<<<<<< HEAD
     public MSButton (int rr, int cc)
+=======
+    public MSButton ( int rr, int cc )
+>>>>>>> 12b83bcd0f9bd14e212af3ea60f3d07e3421bd3a
     {
         width = 400/NUM_COLS;
         height = 400/NUM_ROWS;
@@ -117,6 +140,7 @@ public class MSButton
     
     public void mousePressed () 
     {
+<<<<<<< HEAD
         if(gameOver == false)
             {
             clicked = true;
@@ -153,6 +177,39 @@ public class MSButton
                 if(isValid(r-1, c+1) && buttons[r-1][c+1].isClicked() == false)
                     buttons[r-1][c+1].mousePressed();
             }
+=======
+        clicked = true;
+        if(keyPressed)
+        {
+            marked = !marked;
+        }
+        else if(bombs.contains(this))
+        {
+            displayLosingMessage();
+        }
+        else if(countBombs(r, c) > 0)
+        {
+            label = str(countBombs(r, c));
+        }
+        else
+        {
+            if(isValid(r, c-1) && buttons[r][c-1].isClicked() == false)
+                buttons[r][c-1].mousePressed();
+            if(isValid(r-1, c) && buttons[r-1][c].isClicked() == false)
+                buttons[r-1][c].mousePressed();
+            if(isValid(r, c+1) && buttons[r][c+1].isClicked() == false)
+                buttons[r][c+1].mousePressed();
+            if(isValid(r+1, c) && buttons[r+1][c].isClicked() == false)
+                buttons[r+1][c].mousePressed();
+            if(isValid(r+1, c+1) && buttons[r+1][c+1].isClicked() == false)
+                buttons[r+1][c+1].mousePressed();
+            if(isValid(r-1, c-1) && buttons[r-1][c-1].isClicked() == false)
+                buttons[r-1][c-1].mousePressed();
+            if(isValid(r+1, c-1) && buttons[r+1][c-1].isClicked() == false)
+                buttons[r+1][c-1].mousePressed();
+            if(isValid(r-1, c+1) && buttons[r-1][c+1].isClicked() == false)
+                buttons[r-1][c+1].mousePressed();
+>>>>>>> 12b83bcd0f9bd14e212af3ea60f3d07e3421bd3a
         }
     }
     public void draw ()
